@@ -14,7 +14,8 @@
 
 <body ng-controller="mainCtrl">
    <div class="container">
-    <h1>Merchant Admin Rules Editor</h1>
+    <img src="/ShopifyBrandAssets/shopify_logo_whitebg.svg" style="width:150px;height:150px;">        
+    <h1>  Merchant Admin Rules Editor         <img src="/img/editorhandart.png" style="width:30px;height:30px;"></h1>
     	
 
     	<div id="mainDiv" class="col-sm-12">
@@ -82,17 +83,22 @@
 				<div class="radio"><label><input type="radio" name="optradio">String</label></div>
 				
 
-			</div>
-
-			<div class="col-sm-2">
-			  <label for="blobInsert">Blob insert:</label>
-			  <textarea class="form-control" rows="5" id="blobInsert"></textarea>
-			</div>
+			</div>			
 
 		</div>
 
-			<div class="col-sm-2">
+			<div class="col-sm-12" id="blobBox">
+			  <div class="col-sm-10">
+			  <label for="blobInsert">Blob insert:</label>
+			  <textarea class="form-control" rows="5" id="blobInsert"></textarea>
+			  </div>
+			</div>
+
+
+			<div class="col-sm-12">
+				<div class="col-sm-offset-4 col-sm-2">
 			    <button id="submit" type="button" class="btn btn-primary form-control">Submit</button>
+			    </div>
 			</div>
 	
 	       
