@@ -10,7 +10,8 @@
     "gulp-livereload": "^3.8.1",
     "gulp-open": "^2.0.0",
     "gulp-util": "^3.0.7",
-    "wiredep": "^4.0.0"
+    "wiredep": "^4.0.0",
+    "neo4j": "^1.1.1"
   },
   "devDependencies": {},
   "scripts": {
@@ -28,3 +29,10 @@
   "homepage": "https://github.com/jklaumer/ShopifyWidget#readme",
   "description": ""
 }
+
+//Added neo4j dependency 12/6/16
+
+
+ 
+ 
+  
