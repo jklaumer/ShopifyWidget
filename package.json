@@ -1,38 +1,35 @@
 {
-  "name": "ssjs",
+  "name": "shopifywidget",
   "version": "1.0.0",
   "main": "gulpfile.js",
+  "directories": {
+    "test": "test"
+  },
   "dependencies": {
     "express": "^4.14.0",
     "gulp": "^3.9.1",
-    "gulp-connect": "^4.1.0",
+    "gulp-connect": "^4.2.0",
     "gulp-inject": "^4.1.0",
     "gulp-livereload": "^3.8.1",
     "gulp-open": "^2.0.0",
     "gulp-util": "^3.0.7",
-    "wiredep": "^4.0.0",
-    "neo4j": "^1.1.1"
+    "neo4j-driver": "^1.1.0-M03",
+    "wiredep": "^4.0.0"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jklaumer/ShopifyWidget.git"
   },
+  "author": "Jeff Laumer",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/jklaumer/ShopifyWidget/issues"
   },
   "homepage": "https://github.com/jklaumer/ShopifyWidget#readme",
   "description": ""
 }
-
-//Added neo4j dependency 12/6/16
-
-
- 
- 
-  

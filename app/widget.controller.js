@@ -13,14 +13,13 @@
         
 
 
-        vm.
-        vm.
-        vm.
-        vm.
-        vm.
-        vm.
-        vm.
-        vm.
+        vm.injectableDisplayOrder
+        vm.attributeDisplay
+        vm.condition
+        vm.comparisonValue
+        vm.datatypeComparison
+        vm.injectableFragment
+        
 
         // array 
 
