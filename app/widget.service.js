@@ -16,16 +16,35 @@
 
         ////////////////
 
-        function getRule() {
+        function getRule(ProductDescriptionRule) {
 
-        	var attributeDisplay
-        	var condition
-        	var datatypeComparison
-        	var comparisonValue
-        	var injectableFragment
-        	var injectableDisplayOrder
+            return $http({
+                method: 'GET',
+                url: '',
+                params: {
+                    key: 'name',
+                    type: 'ProductDescriptionRule',
+
+                }
+            })
+            .then(function(response) {
+
+                console.log(response.data.Search);
+                return response.data.Search;
+
+            });  
+        }  
+
+        	
         }
     }
 })();
 
 var neo4j = require('neo4j-driver').v1;
+
+            // var attributeDisplay
+            // var comparisonTypes
+            // var datatypeComparison
+            // var comparisonValue
+            // var injectableFragment
+            // var injectableDisplayOrder

@@ -59,17 +59,17 @@
 				</div>
 
 				<div class="col-sm-2">
-				    <label >Condition:</label>
-				    <select id="condition" class="form-control table-striped" ng-model="vm.condition">
-			    		<option class="XXX" value="YYY">is equal to</option>
-		            	<option class="XXX" value="YYY">is not equal to</option>
-		            	<option class="XXX" value="YYY">is greater than</option>
-		            	<option class="XXX" value="YYY">is less than</option>
-		            	<option class="XXX" value="YYY">starts with</option>
-		            	<option class="XXX" value="YYY">ends with</option>
-		            	<option class="XXX" value="YYY">contains</option>
-		            	<option class="XXX" value="YYY">does not contain</option>
-		            	<option class="XXX" value="YYY">condition option x</option>
+				    <label >Comparison Type:</label>
+				    <select id="comparisonTypes" class="form-control table-striped" ng-model="vm.comparisonTypes">
+			    		<option class="isEqualTo" value="YYY">is equal to</option>
+		            	<option class="isNotEqualTo" value="YYY">is not equal to</option>
+		            	<option class="isGreaterThan" value="YYY">is greater than</option>
+		            	<option class="isLessThan" value="YYY">is less than</option>
+		            	<option class="startsWith" value="YYY">starts with</option>
+		            	<option class="endsWith" value="YYY">ends with</option>
+		            	<option class="contains" value="YYY">contains</option>
+		            	<option class="doesNotContain" value="YYY">does not contain</option>
+		            	<option class="matchesRegex" value="YYY">matches Regular Expression</option>
 				    </select>
 				</div>
 
@@ -80,6 +80,26 @@
 						<!-- <div class="col-sm-12"> -->
 				    <label>Value:</label>
 				    <input id="value" class="form-control" type="text" name="value" placeholder="Enter value" ng-model="vm.comparisonValue">
+
+
+					    
+
+						<!-- ****** input add-on: does the value input need a dropdown for unit measurement ie lbs, oz, etc ? ******  -->
+
+					    <!-- <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+	  
+					    <select id="valueUnit" class="form-control">
+					        <option value="1">lbs</option>
+					        <option value="2">oz</option>
+					        <option value="4">$</option>
+					        <option value="5">units</option>
+					    </select> -->
+						
+						<!-- ******************************************************************************************************** -->
+
+
+
+
 						<!-- </div>  -->
 
 						<!-- RADIO BUTTONS -->
@@ -111,12 +131,15 @@
 			
 			
 
-			<!-- ***** UI VIEW FOR TABLE STATE BELOW ***** -->
+		<!-- ***** UI VIEW FOR TABLE STATE BELOW ***** -->
 
-		
+		<!-- /////////////////////// -->
+		<div class="container"> 
 
-		<div ui-view> </div>
+			<p ui-view> </p>
 
+		</div>
+		<!-- /////////////////////// -->
 		
 
 	</div> <!-- THIS IS THE CLOSING BODY CONTAINER DIV TAG -->
@@ -139,7 +162,6 @@
  	<script src="bower_components/jquery/dist/jquery.js"></script>
  	<!-- endbower -->
     <!-- inject:js -->
-    <script src="/app/app.js"></script>
     <script src="/app/widget.controller.js"></script>
     <script src="/app/widget.service.js"></script>
     <!-- endinject -->
@@ -150,7 +172,7 @@
 
 
 		   <!-- var attributeDisplay
-	        	var condition
+	        	var comparisonTypes
 	        	var datatypeComparison
 	        	var comparisonValue
 	        	var injectableFragment

@@ -11,48 +11,34 @@
     function WidgetController($http , WidgetService) {
         var vm = this;
         
-
-
-        vm.injectableDisplayOrder
-        vm.attributeDisplay
-        vm.condition
-        vm.comparisonValue
-        vm.datatypeComparison
-        vm.injectableFragment
+        //BELOW: (6) VALUES INPUTTED FROM USER ADMIN UI
+        vm.injectableDisplayOrder = [];
+        vm.attributeDisplay = [];
+        vm.comparisonTypes = [];
+        vm.comparisonValue = [];
+        vm.datatypeComparison = [];
+        vm.injectableFragment = [];
         
-
-        // array 
-
-        vm.XXXXXX = [];
-
-
-// controller function list
-		vm.
-        vm.
-        vm.
-        vm.
-        vm.
-        vm.
-        vm.
-        vm.
-
-
 
         activate();
 
 /////////////////////////////////////////////////////////////////////
 
         function activate() {
+        }
 
-        	WidgetService.XXXXXX().then(
+        vm.getRules = function(ProductDescriptionRule) {
+            console.log(ProductDescriptionRule);
 
-        		function (response) {
+        
+            widgetService.getRules(ProductDescriptionRule).then(function (response) {
+                    
+                    console.log(response);
 
-        			vm.XXXXXX = response;
-
-        		},
-
-        	);
+                    vm.PPPPPP = response;
+                    
+                    console.log(vm.PPPPPP);
+                })	
 
         }
 
