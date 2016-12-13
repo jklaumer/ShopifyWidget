@@ -12,7 +12,7 @@
     <!-- endinject -->
 </head>
 
-<body ng-controller="widgetcontroller as vm">
+<body>
     <div class="container">
 	    <img src="/ShopifyBrandAssets/shopify_logo_whitebg.svg" style="width:150px;height:150px;">        
 	    <h1>  Merchant Admin Rules Editor         <img src="/img/editorhandart.png" style="width:30px;height:30px;"></h1>
@@ -129,7 +129,6 @@
 			</div> <!-- CLOSING DIV TAG FOR ENTERRULES DIV CLASS -->
 
 			
-			
 
 		<!-- ***** UI VIEW FOR TABLE STATE BELOW ***** -->
 
@@ -142,26 +141,14 @@
 		<!-- /////////////////////// -->
 		
 
-	</div> <!-- THIS IS THE CLOSING BODY CONTAINER DIV TAG -->
-
-
-
-
-
-
-
-
-
-
-				
-		
-	
-
+	</div> 
  	<!-- bower:js -->
  	<script src="bower_components/angular/angular.js"></script>
  	<script src="bower_components/jquery/dist/jquery.js"></script>
+ 	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
  	<!-- endbower -->
     <!-- inject:js -->
+    <script src="/app/app.js"></script>
     <script src="/app/widget.controller.js"></script>
     <script src="/app/widget.service.js"></script>
     <!-- endinject -->
@@ -171,9 +158,3 @@
 </html>
 
 
-		   <!-- var attributeDisplay
-	        	var comparisonTypes
-	        	var datatypeComparison
-	        	var comparisonValue
-	        	var injectableFragment
-	        	var injectableDisplayOrder -->

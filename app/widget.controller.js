@@ -9,17 +9,18 @@
 
     /* @ngInject */
     function WidgetController($http , WidgetService) {
-        var vm = this;
+        var vm = this;        
+        vm.rule = {};
+        vm.rule.name = [];
+        vm.rule.productDescriptionRuleSetHas = [];
+        vm.rule.comparisonType = [];
+        vm.rule.position = [];
+        vm.rule.fact = [];
+        vm.rule.comparisonValue = [];
+        vm.rule.comparisonDataType = [];
+        vm.rule.injectableDisplaySetting = [];
+        vm.rule.injectableFragment = [];
         
-        //BELOW: (6) VALUES INPUTTED FROM USER ADMIN UI
-        vm.injectableDisplayOrder = [];
-        vm.attributeDisplay = [];
-        vm.comparisonTypes = [];
-        vm.comparisonValue = [];
-        vm.datatypeComparison = [];
-        vm.injectableFragment = [];
-        
-
         activate();
 
 /////////////////////////////////////////////////////////////////////
@@ -27,11 +28,11 @@
         function activate() {
         }
 
-        vm.getRules = function(ProductDescriptionRule) {
+        vm.getRule = function(ProductDescriptionRule) {
             console.log(ProductDescriptionRule);
 
         
-            widgetService.getRules(ProductDescriptionRule).then(function (response) {
+            widgetService.getRule(ProductDescriptionRule).then(function (response) {
                     
                     console.log(response);
 
