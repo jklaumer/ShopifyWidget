@@ -102,7 +102,7 @@
 				        <tr>
 					        <th>Priority</th>
 					        <th>Product Attribute</th>
-					        <th>comparisonTypes</th>
+					        <th>Comparison Types</th>
 					        <th>Value</th>
 					        <th>Value Type</th>
 					        <th>Blob</th>					        
@@ -155,3 +155,28 @@
 			    <button id="saveChanges-btn" class="btn btn-primary">Save Changes</button>
 			    <!-- <p id="export"></p> -->
 		</div>	
+
+
+
+
+
+
+
+				<!-- TEST CODE BELOW FOR TESTING ANGULAR WITHIN TABLE -->
+				
+				<table class="table table-bordered" ng-model="vm.theTable">
+					<!-- <tr ng-repeat="data in items | orderBy:sortType" ng-class="{'bg-info': data.value == '3', 'bg-warning': data.value == '2', 'bg-danger': data.value == '1'}"> -->
+					<tr ng-repeat="todos in vm.todoArray | orderBy:sortType" ng-class="{'bg-info': todos.priority == '3', 'bg-warning': todos.priority == '2', 'bg-danger': todos.priority == '1'}">
+						<td class="ng-cloak">
+						<div class="col-sm-12">
+							<div class="col-sm-4">
+							{{todos.item}}
+							</div>
+							<div class="col-sm-offset-4 col-sm-4" align="right">
+							<button class="btn btn-success" ng-click="vm.editItem(todos.item, todos.priority, todos.toDoEntryId, $index)">EDIT</button>
+							<button class="btn btn-danger" ng-click="vm.deleteItem(todos.toDoEntryId, $index)">DELETE</button>
+							</div>
+							</div>
+						</td>
+					</tr>
+				</table>

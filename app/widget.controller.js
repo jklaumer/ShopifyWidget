@@ -9,7 +9,8 @@
 
     /* @ngInject */
     function WidgetController($http , WidgetService) {
-        var vm = this;        
+        var vm = this;
+        vm.title = 'WidgetController';        
         vm.rule = {};
         vm.rule.name = [];
         vm.rule.productDescriptionRuleSetHas = [];
@@ -20,31 +21,35 @@
         vm.rule.comparisonDataType = [];
         vm.rule.injectableDisplaySetting = [];
         vm.rule.injectableFragment = [];
+
+        vm.ruleArray = [];
         
         activate();
 
 /////////////////////////////////////////////////////////////////////
 
         function activate() {
-        }
-
-        vm.getRule = function(ProductDescriptionRule) {
-            console.log(ProductDescriptionRule);
-
-        
-            widgetService.getRule(ProductDescriptionRule).then(function (response) {
-                    
-                    console.log(response);
-
-                    vm.PPPPPP = response;
-                    
-                    console.log(vm.PPPPPP);
-                })	
+            WidgetService.getRule().then(function(response){
+                vm.ruleArray = response.data;
+                console.log(vm.ruleArray);
+            });
 
         }
+
+       
 
 /////////////////////////////////////////////////////////////////////
 
 
     }
 })();
+
+
+
+
+
+
+
+
+
+

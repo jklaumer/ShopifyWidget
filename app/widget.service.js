@@ -10,8 +10,12 @@
     /* @ngInject */
     function WidgetService($http, obraryAPIurl) {
         var service = {
-        	getRule: getRule
+        	getRule: getRule,
+            addRule: addRule,
+            updateRule: updateRule,
+            deleteRule: deleteRule,
         };
+        var obraryAPIurl = 'http://kit005.obrary.com/api/';
         return service;
 
         ////////////////
@@ -27,8 +31,32 @@
         "injectableDisplaySetting": 1,
         "injectableFragment": "<p align=\"center\">and then he said, \"this is a quote inside a JSON object\" and then all was quiet</p>"
         };
+//READ
+         function getRule(rule) {
+            return $http({
+                method: 'GET',
+                url: obraryAPIurl,
+                header:{
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(function(response) {
+                    if (typeof response.data === "object") {
+                        defer.resolve(response.data);
+                    } else {
+                        defer.reject(response);
+                    }
+            },
+                function(error) {
+                    defer.reject(error);
+                });
 
-        function newRule(rule) {
+            return defer.promise;                  
+        }
+//CREATE
+        function addRule(rule) {
+            obraryAPIurl = obraryAPIurl + 'product-rules/rules';
+            console.log(obraryAPIurl);
             return $http({
                 method: 'POST',
                 url: obraryAPIurl,
@@ -50,9 +78,78 @@
 
             return defer.promise;                  
         }
+//UPDATE
+        function updateRule(rule) {
+            return $http({
+                method: 'PUT',
+                url: obraryAPIurl,
+                header:{
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(function(response) {
+                    if (typeof response.data === "object") {
+                        defer.resolve(response.data);
+                    } else {
+                        defer.reject(response);
+                    }
+            },
+                function(error) {
+                    defer.reject(error);
+                });
+
+            return defer.promise;                  
+        }
+//DELETE
+        function deleteRule(rule) {
+            return $http({
+                method: 'DELETE',
+                url: obraryAPIurl,
+                header:{
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(function(response) {
+                    if (typeof response.data === "object") {
+                        defer.resolve(response.data);
+                    } else {
+                        defer.reject(response);
+                    }
+            },
+                function(error) {
+                    defer.reject(error);
+                });
+
+            return defer.promise;                  
+        }
  
     }
 })();
 
-//change 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
