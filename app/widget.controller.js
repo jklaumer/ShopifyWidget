@@ -29,9 +29,16 @@
 /////////////////////////////////////////////////////////////////////
 
         function activate() {
+            
             WidgetService.getRule().then(function(response){
-                vm.ruleArray = response.data;
+
+                vm.ruleArray = response;
                 console.log(vm.ruleArray);
+
+            }, function(error){
+
+                console.log(error);
+
             });
 
         }

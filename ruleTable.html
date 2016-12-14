@@ -1,34 +1,3 @@
-<!-- **********************************************************************************************
-****TABLE FOR SHOWING ALL RULES WITH ADD/EDIT/DELETE and ABILITY TO CHANGE PRIORITY UP OR DOWN****
-********************************************************************************************** -->
-	
-	       
-	      <!--   <div>
-				<table class="table table-bordered" ng-model="vm.theTable">
-					
-					<tr ng-repeat="adminRules in vm.adminRuleArray | orderBy:sortType">
-						<td class="ng-cloak">
-						<div class="col-sm-12">
-							<div class="col-sm-4">
-							{{adminRules.FILL_IN_THE_BLANK}}
-							</div>
-							<div class="col-sm-offset-4 col-sm-4" id="aedButtons" align="right">
-								<button class="btn btn-success" ng-click="vm.addRule()">ADD</button>
-								<button class="btn btn-warning" ng-click="vm.editRule()">EDIT</button>
-								<button class="btn btn-danger" ng-click="vm.deleteRule()">DELETE</button>
-							</div>
-						</div>
-						</td>
-					</tr>
-					
-				</table>
-			</div> -->
-
-
-<!-- ************************************************************************************************
-****//PRACTICE// TABLE FOR WORKING WITH ADD/EDIT/DELETE and ABILITY TO CHANGE PRIORITY UP OR DOWN****
-************************************************************************************************* -->
-
 		<div class="ruleDisplay">
 
 <!--********************************************************************************************* -->
@@ -128,15 +97,14 @@
 				      
 <!-- *******************This is our clonable table row ****************************************** -->
 
-				        <tr class="hide" ng-repeat="ruleListItem in vm.adminRules">
+				        <tr ng-repeat="ruleListItem in vm.rule">
 
-					        <td contenteditable="true">{{adminRules.injectableDisplayOrder}}</td>
-					        <td contenteditable="true">{{adminRules.attributeDisplay}}</td>					        
-					        <td contenteditable="true">{{adminRules.comparisonTypes}}</td>
-					        <td contenteditable="true">{{adminRules.comparisonValue}}</td>   
-					        <td contenteditable="true">{{adminRules.datatypeComparison}}</td>
-					        <td contenteditable="true">{{adminRules.injectableFragment}}</td>    
-						        						        						        						      						        				        
+					        <td contenteditable="true">{{rule.injectableDisplaySetting}}</td>
+					        <td contenteditable="true">{{rule.attributeDisplay}}</td>					        
+					        <td contenteditable="true">{{rule.comparisonType}}</td>
+					        <td contenteditable="true">{{rule.comparisonValue}}</td>   
+					        <td contenteditable="true">{{rule.comparisonDataType}}</td>
+					        <td contenteditable="true">{{rule.injectableFragment}}</td>    
 					        <td>
 					            <span class="table-up glyphicon glyphicon-arrow-up"></span>
 					            <span class="table-down glyphicon glyphicon-arrow-down"></span>
@@ -162,21 +130,3 @@
 
 
 
-				<!-- TEST CODE BELOW FOR TESTING ANGULAR WITHIN TABLE -->
-				
-				<table class="table table-bordered" ng-model="vm.theTable">
-					<!-- <tr ng-repeat="data in items | orderBy:sortType" ng-class="{'bg-info': data.value == '3', 'bg-warning': data.value == '2', 'bg-danger': data.value == '1'}"> -->
-					<tr ng-repeat="todos in vm.todoArray | orderBy:sortType" ng-class="{'bg-info': todos.priority == '3', 'bg-warning': todos.priority == '2', 'bg-danger': todos.priority == '1'}">
-						<td class="ng-cloak">
-						<div class="col-sm-12">
-							<div class="col-sm-4">
-							{{todos.item}}
-							</div>
-							<div class="col-sm-offset-4 col-sm-4" align="right">
-							<button class="btn btn-success" ng-click="vm.editItem(todos.item, todos.priority, todos.toDoEntryId, $index)">EDIT</button>
-							<button class="btn btn-danger" ng-click="vm.deleteItem(todos.toDoEntryId, $index)">DELETE</button>
-							</div>
-							</div>
-						</td>
-					</tr>
-				</table>

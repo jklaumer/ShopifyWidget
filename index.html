@@ -81,32 +81,13 @@
 				    <label>Value:</label>
 				    <input id="value" class="form-control" type="text" name="value" placeholder="Enter value" ng-model="vm.comparisonValue">
 
-
-					    
-
-						<!-- ****** input add-on: does the value input need a dropdown for unit measurement ie lbs, oz, etc ? ******  -->
-
-					    <!-- <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
-	  
-					    <select id="valueUnit" class="form-control">
-					        <option value="1">lbs</option>
-					        <option value="2">oz</option>
-					        <option value="4">$</option>
-					        <option value="5">units</option>
-					    </select> -->
-						
-						<!-- ******************************************************************************************************** -->
-
-
-
-
 						<!-- </div>  -->
 
 						<!-- RADIO BUTTONS -->
 					<div id="radioChoice" ng-model="vm.datatypeComparison">
 						<div class="radio"><label><input type="radio" name="optradio">Boolean</label></div>
 						<div class="radio"><label><input type="radio" name="optradio">Numeric</label></div>
-						<div class="radio"><label><input type="radio" name="optradio">String</label></div>
+						<div class="radio"><label><input type="radio" name="optradio">Text</label></div>
 					</div>
 
 				</div>			
@@ -133,7 +114,7 @@
 		<!-- ***** UI VIEW FOR TABLE STATE BELOW ***** -->
 
 		<!-- /////////////////////// -->
-		<div class="container"> 
+		<div id="ruleTableContainer" class="container"> 
 
 			<p ui-view> </p>
 

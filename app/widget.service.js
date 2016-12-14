@@ -5,17 +5,17 @@
         .module('myApp')
         .service('WidgetService', WidgetService);
 
-    WidgetService.$inject = ['$http', 'obraryAPIurl'];
+    WidgetService.$inject = ['$http', 'obraryAPIurl', '$q'];
 
     /* @ngInject */
-    function WidgetService($http, obraryAPIurl) {
+    function WidgetService($http, obraryAPIurl, $q) {
         var service = {
         	getRule: getRule,
             addRule: addRule,
             updateRule: updateRule,
             deleteRule: deleteRule,
         };
-        var obraryAPIurl = 'http://kit005.obrary.com/api/';
+        // var obraryAPIurl = 'http://kit005.obrary.com/api/';
         return service;
 
         ////////////////
@@ -32,10 +32,13 @@
         "injectableFragment": "<p align=\"center\">and then he said, \"this is a quote inside a JSON object\" and then all was quiet</p>"
         };
 //READ
-         function getRule(rule) {
-            return $http({
+         function getRule() {
+
+            var defer = $q.defer();
+
+            $http({
                 method: 'GET',
-                url: obraryAPIurl,
+                url: obraryAPIurl + 'product-rules/rules',
                 header:{
                     'Content-Type': 'application/json'
                 }
@@ -55,6 +58,9 @@
         }
 //CREATE
         function addRule(rule) {
+            
+            var defer = $q.defer();
+
             obraryAPIurl = obraryAPIurl + 'product-rules/rules';
             console.log(obraryAPIurl);
             return $http({
@@ -80,6 +86,9 @@
         }
 //UPDATE
         function updateRule(rule) {
+
+            var defer = $q.defer();
+
             return $http({
                 method: 'PUT',
                 url: obraryAPIurl,
@@ -102,6 +111,9 @@
         }
 //DELETE
         function deleteRule(rule) {
+
+            var defer = $q.defer();
+
             return $http({
                 method: 'DELETE',
                 url: obraryAPIurl,
@@ -127,9 +139,14 @@
 })();
 
 
+// var variablethathasreference="bob";
+// var pattern="^"
+// /^bob/.test("jane")
+// new Regexp(patterm+variablethathasreference).test(x)
 
 
-
+// x="bob"
+// x.slice(0,x.length)===x
 
 
 
