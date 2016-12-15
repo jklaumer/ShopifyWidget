@@ -10,7 +10,8 @@
     /* @ngInject */
     function WidgetService($http, obraryAPIurl, $q) {
         var service = {
-        	getRule: getRule,
+        	getRuleSets: getRuleSets,
+            getRule: getRule,
             addRule: addRule,
             updateRule: updateRule,
             deleteRule: deleteRule,
@@ -28,9 +29,36 @@
         "fact": ["product","title"],
         "comparisonValue": "In the Beginning",
         "comparisonDataType": "bool",
-        "injectableDisplaySetting": 1,
+    //    "injectableDisplaySetting": 1,
         "injectableFragment": "<p align=\"center\">and then he said, \"this is a quote inside a JSON object\" and then all was quiet</p>"
         };
+
+//GET ALL RULE SETS 
+        function getRuleSets() {
+
+            var defer = $q.defer();
+
+            $http({
+                method: 'GET',
+                url: obraryAPIurl + 'product-rules/',
+                header:{
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(function(response) {
+                    if (typeof response.data === "object") {
+                        defer.resolve(response.data);
+                    } else {
+                        defer.reject(response);
+                    }
+            },
+                function(error) {
+                    defer.reject(error);
+                });
+
+            return defer.promise;                  
+        }
+
 //READ
          function getRule() {
 
@@ -139,14 +167,6 @@
 })();
 
 
-// var variablethathasreference="bob";
-// var pattern="^"
-// /^bob/.test("jane")
-// new Regexp(patterm+variablethathasreference).test(x)
-
-
-// x="bob"
-// x.slice(0,x.length)===x
 
 
 
