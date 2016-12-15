@@ -47,46 +47,46 @@
 
 /////////////////////////////////////////////////////////////////////
 
-        // vm.addText = function(){
+        vm.addText = function(){
             
-        //     WidgetService.addRule(ruleInput, option).then(function(response){
-        //         vm.ruleArray.push(response.data);
-        //         console.log(vm.ruleArray);
-        //     });
-        // }
+            WidgetService.addRule(ruleInput, option).then(function(response){
+                vm.ruleArray.push(response.data);
+                console.log(vm.ruleArray);
+            });
+        }
 
-        // vm.editRule = function(){
-        //     vm.changeButton = true;
-        //     vm.id = id;
-        //     vm.index = index;
-        //     vm.ruleInput = item;
-        //     vm.priority = vm.options[priority-1].value;
-        //     //console.log(, , );
-        // }
+        vm.editRule = function(){
+            vm.changeButton = true;
+            vm.id = id;
+            vm.index = index;
+            vm.ruleInput = item;
+            vm.priority = vm.options[priority-1].value;
+            //console.log(, , );
+        }
 
-        // vm.commitEdits = function(){
-        //     vm.changeButton = false;
-        //     console.log();
+        vm.commitEdits = function(){
+            vm.changeButton = false;
+            console.log(item, vm.id);
 
-        //     WidgetService.updateRule( , , ).then(function(response){
+            WidgetService.updateRule(item, vm.id).then(function(response){
                 
-        //         console.log(response);
-        //         vm.ruleArray.splice(vm.index, 1, response);
-        //         console.log(vm.ruleArray);
+                console.log(response);
+                vm.ruleArray.splice(vm.index, 1, response);
+                console.log(vm.ruleArray);
                 
                 
-        //     });
+            });
 
-        // }
+        }
 
-        // vm.deleteRule = function(item, index){
-        //     WidgetService.deleteRule(item).then(function(response){
-        //         console.log(index);
-        //     });
-        //     vm.ruleArray.splice(index,1);
-        //     console.log(vm.ruleArray);
+        vm.deleteRule = function(item, index){
+            WidgetService.deleteRule(item).then(function(response){
+                console.log(index);
+            });
+            vm.ruleArray.splice(index,1);
+            console.log(vm.ruleArray);
 
-        // }
+        }
 
 /////////////////////////////////////////////////////////////////////
 
