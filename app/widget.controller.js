@@ -5,10 +5,10 @@
         .module('myApp')
         .controller('WidgetController', WidgetController);
 
-    WidgetController.$inject = ['$http' , 'WidgetService'];
+    WidgetController.$inject = ['$http' , 'WidgetService', '$interval'];
 
     /* @ngInject */
-    function WidgetController($http , WidgetService) {
+    function WidgetController($http , WidgetService, $interval) {
         var vm = this;
         vm.title = 'WidgetController';        
         vm.rule = {};
@@ -34,6 +34,8 @@
 
                 vm.ruleArray = response;
                 console.log(vm.ruleArray);
+
+                $interval(function(){});
 
             }, function(error){
 

@@ -32,10 +32,11 @@
 		    		<div class="col-sm-12">
 		    			<label >Rule Set Name:</label>	
 			            <select class="form-control" name="ruleSetName" ng-model="vm.rule.productDescriptionRuleSetHas.name">
-			            	<option class="aaa" value="aaa">{{rule.productDescriptionRuleSetHas.name}}</option>		
-			            	<option class="bbb" value="bbb"></option>
-			            	<option class="ccc" value="ccc"></option>			
+
+			            <option ng-options="rule.value as rule.name for rule in vm.ruleArray">{{rule.productDescriptionRuleSetHas.name}}</option>
+
 			            </select>
+
 			        </div>
 
 			    </div>
@@ -60,18 +61,18 @@
 					    <label>Fact:</label>
 					    <select id="productAttribute" class="form-control" ng-model="vm.rule.fact">
 					    	
-					    	<option class="XXX" value="YYY">Title</option>
-			            	<option class="XXX" value="YYY">Description Body</option>
-			            	<option class="XXX" value="YYY">Vendor</option>
-			            	<option class="XXX" value="YYY">Type</option>
-			            	<option class="XXX" value="YYY">Tags</option>
-			            	<option class="XXX" value="YYY">Price</option>
-			            	<option class="XXX" value="YYY">Fullfillment Service</option>
-			            	<option class="XXX" value="YYY">Taxable</option>
-			            	<option class="XXX" value="YYY">Inventory Quantity</option>
-			            	<option class="XXX" value="YYY">Weight</option>
-			            	<option class="XXX" value="YYY">Old Inventory Quantity</option>
-			            	<option class="XXX" value="YYY">Requires Shipping</option>
+					    	<option>Title</option>
+			            	<option>Description Body</option>
+			            	<option>Vendor</option>
+			            	<option>Type</option>
+			            	<option>Tags</option>
+			            	<option>Price</option>
+			            	<option>Fullfillment Service</option>
+			            	<option>Taxable</option>
+			            	<option>Inventory Quantity</option>
+			            	<option>Weight</option>
+			            	<option>Old Inventory Quantity</option>
+			            	<option>Requires Shipping</option>
 			            	
 					    </select>
 					</div>
