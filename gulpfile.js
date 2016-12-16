@@ -4,12 +4,16 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     connect = require('gulp-connect'),      // run a local dev server
     inject = require('gulp-inject'),    // inject app dependency includes on index.html
-    open = require('gulp-open');      // open a URL in the browser
+    open = require('gulp-open'),      // open a URL in the browser
+    concat = require('gulp-concat'),  
+    rename = require('gulp-rename'),  
+    uglify = require('gulp-uglify');
+    htmlmin = require('gulp-htmlmin'); 
 
 var jsSources = ['app/*.js'],
     cssSources = ['app/**/*.css'],
     htmlSources = ['**/*.html'];
-
+    
 
 // Watch
 gulp.task('watch', function() {
@@ -19,7 +23,28 @@ gulp.task('watch', function() {
 });
 
 var paths = ['./bower_components/','./app/*.js','./app/**/*.css'];
+    jsDest = 'dist/scripts';
 
+gulp.task('scripts', function() {  
+    return gulp.src(jsSources)
+        .pipe(concat('scripts.js'))
+        .pipe(gulp.dest(jsDest));
+});
+
+gulp.task('scripts', function() {  
+    return gulp.src(jsSources)
+        .pipe(concat('scripts.js'))
+        .pipe(gulp.dest(jsDest))
+        .pipe(rename('scripts.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(jsDest));
+});
+
+gulp.task('minify', function() {
+  return gulp.src(htmlSources)
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('dist'));
+});
 
 gulp.task('injectables', function() {
     var sources = gulp.src(paths, {read: false});

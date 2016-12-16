@@ -17,28 +17,26 @@
 	            
 	    <h1>Merchant Admin Rules Editor</h1>
 
-    	
-    			<div>
-		    		
-		    		<div>
+    		
+    			<div class="form-group col-sm-12">   				
+			  		    		
+		    		<div class="form-group col-sm-4">
 					    <label>Rule Name:</label>
 					    <input id="ruleName" class="form-control" type="text" name="value" placeholder="Enter Rule Name" ng-model="vm.rule.name">
 					</div>	
 		    		
-		    		<div>
+		    		<div class="form-group col-sm-4">
 		    			<label >Rule Set Name:</label>	
 			            <select class="form-control" name="ruleSetName" ng-model="vm.rule.productDescriptionRuleSetHas.id">
 						<option value="" selected disabled>Select Rule Set</option>
 			            <option ng-repeat="rule in vm.ruleSetArray" value="{{rule.id}}">{{rule.name}}</option>
 			            </select>
 			        </div>
-				    
-
-			  
-		    		<div>
+			        
+		    		<div class="form-group col-sm-4">
 		    			<label >Priority:</label>	
 			            <select class="form-control" name="priority" ng-model="vm.rule.position">
-			            	<option value="" selected disabled>Select Rule Set</option>
+			            	<option value="" selected disabled>Select Priority</option>
 			            	<option value="1">1</option>
 			            	<option value="2">2</option>
 			            	<option value="3">3</option>
@@ -46,10 +44,9 @@
 			            	<option value="5">5</option>
 			            </select>
 			        </div>
-
-				   
-
-		    		<div>		    			
+				</div>   
+				<div class="form-group col-sm-12">   				
+		    		<div class="form-group col-sm-4">		    			
 						<label>Fact:</label>																			
 						    <select id="titleSelect" class="form-control" value="{{rule.fact.title}}" ng-model="vm.title">
 						    	<option>Title</option>
@@ -69,8 +66,9 @@
 					            <option ng-repeat="rule in vm.ruleSetArray" value="{{rule.fact.product}}">product</option>
 				            </select>												
 					</div>
+				
 
-					<div>
+					<div class="form-group col-sm-4">
 					    <label >Comparison Type:</label>
 					    <select id="comparisonTypes" class="form-control" ng-model="vm.rule.comparisonType">
 				    		<option value="" selected disabled>Select Below</option>
@@ -87,8 +85,8 @@
 					</div>
 				
 
-							<!-- CREATED A SPAN TO STACK VALUE INPUT AND RADIO BUTTONS TOGETHER -->
-					<div>
+							
+					<div class="form-group col-sm-4">
 					    <label>Value:</label>
 					    <input id="value" type="text" class="form-control" placeholder="Enter value" ng-model="vm.rule.comparisonValue">
 
@@ -97,12 +95,13 @@
 							<div class="radio"><label><input ng-model="vm.rule.comparisonDataType" type="radio" name="optradio" value="numeric">Numeric</label></div>
 							<div class="radio"><label><input ng-model="vm.rule.comparisonDataType" type="radio" name="optradio" value="text">Text</label></div>
 						</div>					
-					</div>			
-
+					</div>
+				</div>				
+				<div class="form-group col-sm-12">
 				
 					<div>
 						<div>
-						  <div>
+						  <div class="form-group col-sm-12">
 						  <label>Blob insert:</label>
 						  <textarea class="form-control" rows="5" id="blobInsert" ng-model="vm.rule.injectableFragment"></textarea>
 						  </div>
@@ -110,7 +109,7 @@
 					
 
 						<div>
-							<div class="col-sm-4">
+							<div class="form-group col-sm-2">
 						    <button type="submit" id="submitbutton" class="btn btn-primary form-control" ng-click="vm.addRule()">Submit</button>
 						    </div>
 						</div>
