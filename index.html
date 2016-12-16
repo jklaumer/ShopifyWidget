@@ -12,127 +12,127 @@
     <!-- endinject -->
 </head>
 
-<body>
+<body ng-controller="WidgetController as vm">
     <div class="container">
 	    <img src="/ShopifyBrandAssets/shopify_logo_whitebg.svg" style="width:150px;height:150px;">        
 	    <h1>  Merchant Admin Rules Editor         <img src="/img/editorhandart.png" style="width:30px;height:30px;"></h1>
-	    	
-
     	<div id="mainDiv" class="col-sm-12">
 
 	    	<div class="enterRules">
-
-	    		<div class="col-sm-2">
-				    <label>Rule Name:</label>
-				    <input id="ruleName" class="form-control" type="text" name="value" placeholder="Enter Rule Name" ng-model="vm.rule.name">
-				</div>	
-
-	    		<div class="col-sm-2">
-
-		    		<div class="col-sm-12">
-		    			<label >Rule Set Name:</label>	
-			            <select class="form-control" name="ruleSetName" ng-model="vm.rule.productDescriptionRuleSetHas.name">
-
-			            <option ng-options="rule.value as rule.name for rule in vm.ruleArray">{{rule.productDescriptionRuleSetHas.name}}</option>
-
-			            </select>
-
-			        </div>
-
-			    </div>
-
-			    <div class="col-sm-2">
-
-		    		<div class="col-sm-12">
-		    			<label >Priority:</label>	
-			            <select class="form-control" name="priority" ng-model="vm.rule.position">
-			            	<option class="1" value="1">1</option>
-			            	<option class="2" value="2">2</option>
-			            	<option class="3" value="3">3</option>
-			            	<option class="4" value="4">4</option>
-			            	<option class="5" value="5">5</option>
-			            </select>
-			        </div>
-
-			    </div>
-
-	    		<div class="col-sm-2">
-	    			<div class="col-sm-12">
-					    <label>Fact:</label>
-					    <select id="productAttribute" class="form-control" ng-model="vm.rule.fact">
-					    	
-					    	<option>Title</option>
-			            	<option>Description Body</option>
-			            	<option>Vendor</option>
-			            	<option>Type</option>
-			            	<option>Tags</option>
-			            	<option>Price</option>
-			            	<option>Fullfillment Service</option>
-			            	<option>Taxable</option>
-			            	<option>Inventory Quantity</option>
-			            	<option>Weight</option>
-			            	<option>Old Inventory Quantity</option>
-			            	<option>Requires Shipping</option>
-			            	
-					    </select>
-					</div>
-				</div>
-
-				<div class="col-sm-2">
-					<div class="col-sm-12">
-					    <label >Comparison Type:</label>
-					    <select id="comparisonTypes" class="form-control" ng-model="vm.rule.comparisonType">
-				    		<option class="isEqualTo" value="YYY">is equal to</option>
-			            	<option class="isNotEqualTo" value="YYY">is not equal to</option>
-			            	<option class="isGreaterThan" value="YYY">is greater than</option>
-			            	<option class="isLessThan" value="YYY">is less than</option>
-			            	<option class="startsWith" value="YYY">starts with</option>
-			            	<option class="endsWith" value="YYY">ends with</option>
-			            	<option class="contains" value="YYY">contains</option>
-			            	<option class="doesNotContain" value="YYY">does not contain</option>
-			            	<option class="matchesRegex" value="YYY">matches Regular Expression</option>
-					    </select>
-					</div>
-				</div>
-
-						<!-- CREATED A SPAN TO STACK VALUE INPUT AND RADIO BUTTONS TOGETHER -->
-				<div class="col-sm-2">
-
-						<!-- COMMENTED OUT DIV WRAPPER ON VALUE INPUT CODE BELOW BECAUSE ERROR WAS PREVENTING TEXT INPUT (?) -->
-						<!-- <div class="col-sm-12"> -->
-				    <label>Value:</label>
-				    <input id="value" class="form-control" type="text" name="value" placeholder="Enter value" ng-model="vm.rule.comparisonValue">
-
-						<!-- </div>  -->
-
-						<!-- RADIO BUTTONS -->
-					<div id="radioChoice" ng-model="vm.rule.comparisonDataType">
-						<div class="radio"><label><input type="radio" name="optradio" value="Boolean">Boolean</label></div>
-						<div class="radio"><label><input type="radio" name="optradio" value="Numeric">Numeric</label></div>
-						<div class="radio"><label><input type="radio" name="optradio" value="Text">Text</label></div>
-					</div>
-
-				</div>			
-
-			
-			<div class="col-sm-12">
-				<div class="col-sm-12" id="blobBox">
-				  <div class="col-sm-10">
-				  <label>Blob insert:</label>
-				  <textarea class="form-control" rows="5" id="blobInsert" ng-model="vm.rule.injectableFragment"></textarea>
-				  </div>
-				</div>
-			
-
-				<div class="col-sm-12">
-					<div class=" col-sm-2">
-				    <button id="submit" type="button" class="btn btn-primary form-control" ng-click="vm.addRule(rule, $index)">Submit</button>
+		    		<div class="col-sm-2">
+					    <label>Rule Name:</label>
+					    <input id="ruleName" class="form-control" type="text" name="value" placeholder="Enter Rule Name" ng-model="vm.rule.name">
+					</div>	
+		    		<div class="col-sm-2">
+			    		<div class="col-sm-12">
+			    			<label >Rule Set Name:</label>	
+				            <select class="form-control" name="ruleSetName" ng-model="vm.rule.productDescriptionRuleSetHas.id">
+							<option value="" selected disabled>Select Rule Set</option>
+				            <option ng-repeat="rule in vm.ruleSetArray" value="{{rule.id}}">{{rule.name}}</option>
+				            </select>
+				        </div>
 				    </div>
-				</div>
 
-			</div>
+				    <div class="col-sm-2">
+			    		<div class="col-sm-12">
+			    			<label >Priority:</label>	
+				            <select class="form-control" name="priority" ng-model="vm.rule.position">
+				            	<option value="" selected disabled>Select Rule Set</option>
+				            	<option class="1" value="1">1</option>
+				            	<option class="2" value="2">2</option>
+				            	<option class="3" value="3">3</option>
+				            	<option class="4" value="4">4</option>
+				            	<option class="5" value="5">5</option>
+				            </select>
+				        </div>
 
+				    </div>
 
+		    		<div class="col-sm-2">
+		    			
+						    <label>Fact:</label>
+
+								
+				            <select id="productSelect" class="form-control" ng-model="vm.product">
+							<option value="" selected disabled>Select Product</option>
+				            <option ng-repeat="rule in vm.ruleSetArray" value="{{rule.fact.product}}">product</option>
+
+				            </select>
+
+						    <select id="titleSelect" class="form-control" ng-model="vm.title">
+						    	<option value="" selected disabled>Select Title</option>
+						    	<option>Title</option>
+				            	<option>Description Body</option>
+				            	<option>Vendor</option>
+				            	<option>Type</option>
+				            	<option>Tags</option>
+				            	<option>Price</option>
+				            	<option>Fullfillment Service</option>
+				            	<option>Taxable</option>
+				            	<option>Inventory Quantity</option>
+				            	<option>Weight</option>
+				            	<option>Old Inventory Quantity</option>
+				            	<option>Requires Shipping</option>
+				            	
+						    </select>
+						
+					</div>
+
+					<div class="col-sm-2">
+						<div class="col-sm-12">
+						    <label >Comparison Type:</label>
+						    <select id="comparisonTypes" class="form-control" ng-model="vm.rule.comparisonType">
+					    		<option value="" selected disabled>Select Below</option>
+					    		<option value="isEqualTo">is equal to</option>
+				            	<option value="isNotEqualTo">is not equal to</option>
+				            	<option value="isGreaterThan">is greater than</option>
+				            	<option value="isLessThan">is less than</option>
+				            	<option value="startsWith">starts with</option>
+				            	<option value="endsWith">ends with</option>
+				            	<option value="contains">contains</option>
+				            	<option value="doesNotContain">does not contain</option>
+				            	<option value="matchesRegex">matches Regular Expression</option>
+						    </select>
+						</div>
+					</div>
+
+							<!-- CREATED A SPAN TO STACK VALUE INPUT AND RADIO BUTTONS TOGETHER -->
+					<div class="col-sm-2">
+
+							<!-- COMMENTED OUT DIV WRAPPER ON VALUE INPUT CODE BELOW BECAUSE ERROR WAS PREVENTING TEXT INPUT (?) -->
+							<!-- <div class="col-sm-12"> -->
+					    <label>Value:</label>
+					    <input id="value" class="form-control" type="text" name="value" placeholder="Enter value" ng-model="vm.rule.comparisonValue">
+
+							<!-- </div>  -->
+
+							<!-- RADIO BUTTONS -->
+						<div id="radioChoice">
+							<div class="radio"><label><input ng-model="vm.rule.comparisonDataType" type="radio" name="optradio" value="bool">Boolean</label></div>
+							<div class="radio"><label><input ng-model="vm.rule.comparisonDataType" type="radio" name="optradio" value="numeric">Numeric</label></div>
+							<div class="radio"><label><input ng-model="vm.rule.comparisonDataType" type="radio" name="optradio" value="text">Text</label></div>
+						</div>
+
+					
+					</div>			
+
+				
+					<div class="col-sm-12">
+						<div class="col-sm-12" id="blobBox">
+						  <div class="col-sm-10">
+						  <label>Blob insert:</label>
+						  <textarea class="form-control" rows="5" id="blobInsert" ng-model="vm.rule.injectableFragment"></textarea>
+						  </div>
+						</div>
+					
+
+						<div class="col-sm-12">
+							<div class=" col-sm-2">
+						    <button type="submit" id="submitbutton" class="btn btn-primary form-control" ng-click="vm.addRule()">Submit</button>
+						    </div>
+						</div>
+
+					</div>
 
 			</div> <!-- CLOSING DIV TAG FOR ENTERRULES DIV CLASS -->
 

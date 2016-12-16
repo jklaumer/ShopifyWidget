@@ -22,16 +22,15 @@
         ////////////////
         
         var dummyRecord = {
-        "name": "This is a test rule",
+        "name": "TEST RULE 3",
         "productDescriptionRuleSetHas":{"id": "5f2518abbcac48c8b823654e37c43306"},
         "comparisonType": "startsWith",
         "position": 2,
         "fact": ["product","title"],
         "comparisonValue": "In the Beginning",
         "comparisonDataType": "bool",
-    //    "injectableDisplaySetting": 1,
         "injectableFragment": "<p align=\"center\">and then he said, \"this is a quote inside a JSON object\" and then all was quiet</p>"
-        };
+        }
 
 //GET ALL RULE SETS 
         function getRuleSets() {
@@ -40,7 +39,7 @@
 
             $http({
                 method: 'GET',
-                url: obraryAPIurl + 'product-rules/',
+                url: obraryAPIurl + 'product-rules/rulesets',
                 header:{
                     'Content-Type': 'application/json'
                 }
@@ -86,15 +85,15 @@
         }
 //CREATE
         function addRule(rule) {
-            
+            console.log(rule);
             var defer = $q.defer();
 
             obraryAPIurl = obraryAPIurl + 'product-rules/rules';
-            console.log(obraryAPIurl);
-            return $http({
+
+            $http({
                 method: 'POST',
                 url: obraryAPIurl,
-                data: dummyRecord,
+                data: rule,
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -117,7 +116,7 @@
 
             var defer = $q.defer();
 
-            return $http({
+            $http({
                 method: 'PUT',
                 url: obraryAPIurl,
                 header:{
@@ -142,7 +141,7 @@
 
             var defer = $q.defer();
 
-            return $http({
+            $http({
                 method: 'DELETE',
                 url: obraryAPIurl,
                 header:{

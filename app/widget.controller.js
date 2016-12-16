@@ -5,21 +5,23 @@
         .module('myApp')
         .controller('WidgetController', WidgetController);
 
-    WidgetController.$inject = ['$http' , 'WidgetService', '$interval'];
+    WidgetController.$inject = ['$http' , 'WidgetService'];
 
     /* @ngInject */
-    function WidgetController($http , WidgetService, $interval) {
+    function WidgetController($http , WidgetService) {
         var vm = this;
         vm.title = 'WidgetController';        
         vm.rule = {};
         vm.rule.name = [];
-        vm.rule.productDescriptionRuleSetHas = [];
+        vm.rule.productDescriptionRuleSetHas = {};
+        vm.rule.productDescriptionRuleSetHas.id;
         vm.rule.comparisonType = [];
         vm.rule.position = [];
-        vm.rule.fact = [];
+        vm.product = 'product';
+        vm.title = 'title';
+        vm.rule.fact = [vm.product,vm.title];
         vm.rule.comparisonValue = [];
-        vm.rule.comparisonDataType = [];
-        vm.rule.injectableDisplaySetting = [];
+        vm.rule.comparisonDataType = '';
         vm.rule.injectableFragment = [];
 
         vm.ruleArray = [];
@@ -30,12 +32,11 @@
 
         function activate() {
 
+            // get the existing rules
             WidgetService.getRule().then(function(response){
 
                 vm.ruleArray = response;
                 console.log(vm.ruleArray);
-
-                $interval(function(){});
 
             }, function(error){
 
@@ -43,52 +44,59 @@
 
             });
 
+            // get the rule sets
+
+            WidgetService.getRuleSets().then(function(response){
+
+                vm.ruleSetArray = response;
+                console.log(vm.ruleSetArray);
+
+            }, function(error){
+
+                console.log(error);
+
+            });
         }
 
        
 
 /////////////////////////////////////////////////////////////////////
 
-        vm.addText = function(){
-            
-            WidgetService.addRule(ruleInput, option).then(function(response){
+        vm.addRule = function(){
+
+            WidgetService.addRule(vm.rule).then(function(response){
+
                 vm.ruleArray.push(response.data);
                 console.log(vm.ruleArray);
+                
+            }, function(error){
+                console.log(error);
             });
         }
 
-        vm.editRule = function(){
-            vm.changeButton = true;
-            vm.id = id;
-            vm.index = index;
-            vm.ruleInput = item;
-            vm.priority = vm.options[priority-1].value;
-            //console.log(, , );
-        }
+        // vm.commitEdits = function(){
+        //     vm.changeButton = false;
+        //     console.log(item, vm.id);
 
-        vm.commitEdits = function(){
-            vm.changeButton = false;
-            console.log(item, vm.id);
-
-            WidgetService.updateRule(item, vm.id).then(function(response){
+        //     WidgetService.updateRule(item, vm.id).then(function(response){
                 
-                console.log(response);
-                vm.ruleArray.splice(vm.index, 1, response);
-                console.log(vm.ruleArray);
+        //         console.log(response);
+        //         vm.ruleArray.splice(vm.index, 1, response);
+        //         console.log(vm.ruleArray);
                 
                 
-            });
+        //     });
 
-        }
+        // }
 
-        vm.deleteRule = function(item, index){
-            WidgetService.deleteRule(item).then(function(response){
-                console.log(index);
-            });
-            vm.ruleArray.splice(index,1);
-            console.log(vm.ruleArray);
+        // vm.deleteRule = function(item, index){
+        //     WidgetService.deleteRule(item).then(function(response){
+        //         console.log(index);
+        //     });
+        //     vm.ruleArray.splice(index,1);
+        //     console.log(vm.ruleArray);
 
-        }
+        // }
 
 /////////////////////////////////////////////////////////////////////
 
