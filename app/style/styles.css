@@ -1,16 +1,7 @@
-/*.ruleDisplay {
-  margin-top: 10%;
-}*/
-
-.enterRules {
-  margin-bottom: 30%;
+* {
+  margin: 10px;
 }
 
-#submitbutton {
-  margin: 20%;
-}
-
-#productSelect {
-  margin: 10%;
+#submitButton {
   
 }
