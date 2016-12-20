@@ -87,6 +87,7 @@ gulp.task('app', function(){
 
 
 gulp.task('serve', ['connect', 'watch', 'injectables', 'app']);
+gulp.task('minifyAll', ['minify', 'scripts'])
 
 
 
